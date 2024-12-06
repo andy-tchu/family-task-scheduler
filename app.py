@@ -22,8 +22,6 @@ def start_app():
 
         register_our_blueprints(app)
 
-        return app
-
     except Exception as e:
         logging.critical(f"Failed at initialization: {str(e)}")
 
@@ -38,10 +36,7 @@ def start_app():
 
     return app
 
-def main(data, context):
-    if __name__ == '__main__':
-        app = start_app()
-        logging.info("Starting Flask app")
-        #app.run(debug=app.config["DEBUG"], port=app.config["PORT"], host=app.config["HOST"])
-
-# main()
+if __name__ == '__main__':
+    app = start_app()
+    logging.info("Starting Flask app")
+    app.run(debug=app.config["DEBUG"], port=app.config["PORT"], host=app.config["HOST"])
