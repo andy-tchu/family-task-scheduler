@@ -1,26 +1,33 @@
 from flask import Flask
 import logging
 from config import init_db, setup_logger, load_config
+from routes import register_our_blueprints
+from flask_jwt_extended import JWTManager
+from services.auth_service import require_jwt_token
+
 
 def start_app():
-    print("start")
     app = Flask(__name__)
     
     try:
-        print("start2")
         init_db()
         setup_logger()
-        print("start3")
 
         app.config.update(load_config())
-        print("start4")
+        
+        # Initialize JWT
+        jwtmanger = JWTManager(app)
+
+        app.before_request(require_jwt_token)
+
+        register_our_blueprints(app)
 
     except Exception as e:
         logging.critical(f"Failed at initialization: {str(e)}")
 
     @app.route("/")
     def index():
-        return("Hello, world!")
+        return("Family Task Scheduler application working!")
 
     # Catch-all route
     @app.route('/<path:path>', methods=["GET", "POST", "PUT", "DELETE"])

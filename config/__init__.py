@@ -26,7 +26,8 @@ def load_config():
     if not os.getenv("CLIENT_URL"):
         logging.warning("CLIENT_URL isn't found in the environment, using the default")
     return {
-        "SECRET_KEY": os.getenv("SECRET_KEY", "default_secret"),
+        "DATABASE_SERVER": os.getenv("DATABASE_SERVER", "mongodb://localhost:27017/"),
+        "SECRET_KEY": os.getenv("SECRET_KEY", "default_secret_key"),
         "DEBUG": os.getenv("DEBUG", "false").lower() == "true",
         "CLIENT_URL": os.getenv("CLIENT_URL", "*"),
         "PORT": int(os.getenv("PORT", 5000)),
