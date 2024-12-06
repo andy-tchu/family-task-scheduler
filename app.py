@@ -38,10 +38,10 @@ def start_app():
 
     return app
 
-def main():
+def main(data, context):
     if __name__ == '__main__':
         app = start_app()
         logging.info("Starting Flask app")
         #app.run(debug=app.config["DEBUG"], port=app.config["PORT"], host=app.config["HOST"])
 
-main()
+# main()
