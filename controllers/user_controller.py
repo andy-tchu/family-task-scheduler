@@ -2,17 +2,17 @@ import logging
 from flask import abort, request
 from config.db import get_db_conn
 import json
-from bson import json_util
+from bson import json_util, ObjectId
 
 
 # get user
 def get_user(id):
     try:    
         db_conn = get_db_conn()
-        found_user = db_conn["users"].find_one({"_id":id})
+        found_user = db_conn["users"].find_one({"_id": ObjectId(id)})
         endpoint = request.endpoint
-        logging.info(f"{endpoint}: {found_user}")
-        return found_user
+        logging.info(f"get_user, {endpoint}: {found_user}")
+        return json.loads(json_util.dumps(found_user))
     except Exception as e:
         logging.error(str(e))
         abort(500)
@@ -43,12 +43,13 @@ def create_user(user):
         logging.error(str(e))
         abort(500)
 
+#get user by username
 def get_user_by_username(username):
     try:    
         db_conn = get_db_conn()
         found_user = db_conn["users"].find_one({"username": username})
         endpoint = request.endpoint
-        logging.info(f"{endpoint}: {found_user}")
+        logging.info(f"get_user_by_username, {endpoint}: {found_user}")
         return json.loads(json_util.dumps(found_user))
     except Exception as e:
         logging.error(str(e))

@@ -1,7 +1,8 @@
 from flask import Blueprint, request, abort
 from models import MemberSchema
 from marshmallow import ValidationError
-from controllers.member_controller import get_all_members, get_member_by_familyname_and_name, create_member, get_all_family_members_by_name
+from controllers.member_controller import get_all_members, get_all_family_members, create_member, get_member
+from controllers.family_controller import get_family
 import logging
 
 member_schema = MemberSchema()
@@ -26,26 +27,42 @@ def create_member_bp():
         data = request.get_json()
         if not data:
             return "Member data not found", 400
-        validated_family = member_schema.load(data)
-        if not validated_family:
+        
+        print(data)
+        validated_member = member_schema.load(data)
+        if not validated_member:
             return "Member data not correct", 400
-        member = create_member(validated_family)
+        
+        member = create_member(validated_member)
         
         return member
     except Exception as e:
         logging.error(str(e))
-        return "Error creating family", 500      
+        return "Error creating member", 500      
         
-@members_bp.route("<string:name>", methods=['GET'])
-def get_family_bp(name):
+@members_bp.route("<string:id>", methods=['GET'])
+def get_member_bp(id):
     try:
-        family = get_family_by_name(name)
-        if family:
-            return (family, 200)
+        member = get_member(id)
+        if member:
+            return (member, 200)
         return "Family not found", 404
     except Exception as e:
         logging.error(str(e))
-        return "Error finding family", 500
+        return "Error finding member", 500
+    
+@members_bp.route("family/<string:id>", methods=['GET'])
+def get_all_family_member_bp(id):
+    try:
+        family = get_family(id)
+        if not family:
+            return "Family not found", 404
+        
+        return get_all_family_members(id)
+    
+    except Exception as e:
+        logging.error(str(e))
+        return "Error finding family members", 500
 
 @members_bp.route("<int:id>", methods=['PUT'])
 def update_family_bp(id):
