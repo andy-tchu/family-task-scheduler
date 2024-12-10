@@ -45,13 +45,13 @@ def get_member_bp(id):
         member = get_member(id)
         if member:
             return (member, 200)
-        return "Family not found", 404
+        return "Member not found", 404
     except Exception as e:
         logging.error(str(e))
         return "Error finding member", 500
     
 @members_bp.route("family/<string:id>", methods=['GET'])
-def get_all_family_member_bp(id):
+def get_all_family_members_bp(id):
     try:
         family = get_family(id)
         if not family:
