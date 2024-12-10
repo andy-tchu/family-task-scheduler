@@ -1,8 +1,7 @@
 from flask import Blueprint, request, abort
 from models import UserSchema
 from marshmallow import ValidationError
-from controllers.user_controller import get_user_by_username, create_user, get_all_users
-# from controllers.authentication import login_user, register_user
+from controllers.user_controller import get_user, create_user, get_all_users
 import logging
 
 user_schema = UserSchema()
@@ -38,10 +37,10 @@ def create_user_bp():
         logging.error(str(e))
         return "Error creating user", 500      
         
-@users_bp.route("<string:name>", methods=['GET'])
-def get_user_bp(name):
+@users_bp.route("<string:id>", methods=['GET'])
+def get_user_bp(id):
     try:
-        user = get_user_by_username(name)
+        user = get_user(id)
         if user:
             return (user, 200)
         return "User not found", 404
@@ -55,15 +54,4 @@ def update_user_bp(id):
     
 @users_bp.route("<int:id>", methods=['DELETE'])
 def delete_user_bp(id):
-    return "NOT YET"
-
-@users_bp.route("login", methods=['POST'])
-def login():   
-    try:
-        data = request.get_json()
-        if not data:
-            return "Login data not found", 400
-        return login_user(data)
-    except Exception as e:
-        logging.error(str(e))
-        return "Error finding user", 500      
+    return "NOT YET"  

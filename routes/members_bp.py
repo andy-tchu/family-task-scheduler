@@ -28,7 +28,6 @@ def create_member_bp():
         if not data:
             return "Member data not found", 400
         
-        print(data)
         validated_member = member_schema.load(data)
         if not validated_member:
             return "Member data not correct", 400

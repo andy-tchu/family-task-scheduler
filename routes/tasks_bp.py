@@ -1,7 +1,7 @@
 from flask import Blueprint, request, abort
 from models import TaskSchema
 from marshmallow import ValidationError
-from controllers.task_controller import get_task, create_task, get_all_tasks, get_all_family_tasks
+from controllers.task_controller import get_task, create_task, get_all_tasks, get_all_family_tasks, get_all_tasks_by_member
 import logging
 
 task_schema = TaskSchema()
@@ -43,6 +43,19 @@ def create_task_bp():
 def get_task_bp(id):
     try:
         task = get_task(id)
+        if task:
+            return (task, 200)
+        
+        return "Task not found", 404
+    
+    except Exception as e:
+        logging.error(str(e))
+        return "Error finding task", 500
+
+@tasks_bp.route("member/<string:id>", methods=['GET'])
+def get_all_tasks_by_member_bp(id):
+    try:
+        task = get_all_tasks_by_member(id)
         if task:
             return (task, 200)
         
