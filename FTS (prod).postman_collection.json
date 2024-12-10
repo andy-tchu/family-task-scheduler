@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a9b45e43-cbdc-4203-af5e-b2fff8babdb0",
+		"_postman_id": "0ff37a08-6555-42f7-aa1f-aaea17f30724",
 		"name": "FTS (prod)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "31848782"
@@ -10,10 +10,51 @@
 			"name": "Users",
 			"item": [
 				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"andy_tchu\",\r\n    \"password\": \"scrypt:32768:8:1$NvD5UI3gU4bqW6h2$34038bcf63af86adf7a91f39c415832740db54b307cdb89e389e5045a9016b573e0652130cc46a1def590d7a6d1d316811e24fc26bbfe0377f2332bec07fb248\",\r\n    \"telegram\": \"andy_tchu\",\r\n    \"admin\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/users",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get all users",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/users",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
 					},
 					"response": []
 				},
@@ -21,15 +62,19 @@
 					"name": "Get user",
 					"request": {
 						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "Create user",
-					"request": {
-						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/675489230da03cc6a2d02787",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"675489230da03cc6a2d02787"
+							]
+						}
 					},
 					"response": []
 				}
@@ -41,8 +86,70 @@
 				{
 					"name": "Create family",
 					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Chuchalov\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/families",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"families"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get family",
+					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/families/6755c3f074d06a62283c4541",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"families",
+								"6755c3f074d06a62283c4541"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all families",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/families",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"families"
+							]
+						}
 					},
 					"response": []
 				}
@@ -54,8 +161,72 @@
 				{
 					"name": "Create member",
 					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Irina Kiniaeva \",\r\n    \"phone\": \"055-770-5319\",\r\n    \"role\": \"adult\",\r\n    \"familyId\": \"6755c3f074d06a62283c4541\",\r\n    \"userId\": \"67587b5c9c97d2ca7f38b202\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/members",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get member",
+					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/members/67582da6c8a3d2a967fe3718",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"members",
+								"67582da6c8a3d2a967fe3718"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all family members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/members/family/6755c3f074d06a62283c4541",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"members",
+								"family",
+								"6755c3f074d06a62283c4541"
+							]
+						}
 					},
 					"response": []
 				}
@@ -67,8 +238,29 @@
 				{
 					"name": "Signup",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"kiniaeva_irina\",\r\n    \"password\": \"Tt345678!\",\r\n    \"telegram\": \"kiniaeva\",\r\n    \"admin\": \"False\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/signup",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"signup"
+							]
+						}
 					},
 					"response": []
 				},
@@ -104,8 +296,85 @@
 				{
 					"name": "Logout",
 					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/logout",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Create task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Theater Superwings show\",\r\n    \"description\": \"Address: Kugel 11\",\r\n    \"assignedTo\": [\"67582da6c8a3d2a967fe3718\",\"67587cc79c97d2ca7f38b204\"],\r\n    \"familyId\": \"6755c3f074d06a62283c4541\",\r\n    \"date\": \"2024-12-28T12:00:00.000Z\",\r\n    \"priority\": \"high\",\r\n    \"status\": \"pending\",\r\n    \"notes\": \"tickets in Andrey`s gmail\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/tasks",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tasks by member",
+					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://family-task-scheduler.onrender.com/tasks/member/67582da6c8a3d2a967fe3718",
+							"protocol": "https",
+							"host": [
+								"family-task-scheduler",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"tasks",
+								"member",
+								"67582da6c8a3d2a967fe3718"
+							]
+						}
 					},
 					"response": []
 				}
