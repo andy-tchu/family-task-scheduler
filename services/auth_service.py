@@ -7,7 +7,7 @@ def auth_routes():
     try:
         token = request.cookies.get("Authorized")
         if not token:
-            return {"error": "Token not found"}, 401
+            return {"error": "Token not found"}, 403
 
         decoded_token = decode_token(token)
         identity = decoded_token.get("sub")
@@ -21,7 +21,7 @@ def auth_routes():
         return True
     
     except Exception as e:
-        return {"JWT error": str(e)}, 401
+        return {"JWT error": str(e)}, 403
     
 def require_jwt_token():
     """
