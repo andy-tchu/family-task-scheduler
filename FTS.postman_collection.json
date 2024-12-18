@@ -7,204 +7,6 @@
 	},
 	"item": [
 		{
-			"name": "Users",
-			"item": [
-				{
-					"name": "Get all users",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get user",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/users/675489230da03cc6a2d02787",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"users",
-								"675489230da03cc6a2d02787"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create user",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"andy_tchu\",\r\n    \"password\": \"scrypt:32768:8:1$NvD5UI3gU4bqW6h2$34038bcf63af86adf7a91f39c415832740db54b307cdb89e389e5045a9016b573e0652130cc46a1def590d7a6d1d316811e24fc26bbfe0377f2332bec07fb248\",\r\n    \"telegram\": \"andy_tchu\",\r\n    \"admin\": false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Families",
-			"item": [
-				{
-					"name": "Create family",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Chuchalov\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/families",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"families"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get family",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/families/675488220da03cc6a2d02786",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"families",
-								"675488220da03cc6a2d02786"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get all families",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/families",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"families"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Members",
-			"item": [
-				{
-					"name": "Create member",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "Get member",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/members/675497da3a8cb03e115a7286",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"members",
-								"675497da3a8cb03e115a7286"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get all family members",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:5000/members/family/675488220da03cc6a2d02786",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"members",
-								"family",
-								"675488220da03cc6a2d02786"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Auth",
 			"item": [
 				{
@@ -293,6 +95,322 @@
 			]
 		},
 		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"andy_tchu\",\r\n    \"password\": \"scrypt:32768:8:1$NvD5UI3gU4bqW6h2$34038bcf63af86adf7a91f39c415832740db54b307cdb89e389e5045a9016b573e0652130cc46a1def590d7a6d1d316811e24fc26bbfe0377f2332bec07fb248\",\r\n    \"telegram\": \"andy_tchu\",\r\n    \"admin\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/675489230da03cc6a2d02787",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"675489230da03cc6a2d02787"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"telegram\": \"andy_tchu1\",\r\n    \"admin\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/675489230da03cc6a2d02787",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"675489230da03cc6a2d02787"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/6763157156752173e9ab1367",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"6763157156752173e9ab1367"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Families",
+			"item": [
+				{
+					"name": "Create family",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kiniaev\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/families",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"families"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get family",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/families/6762d447a2e511c6c76c55ab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"families",
+								"6762d447a2e511c6c76c55ab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update family",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kiniaev\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/families/6762d447a2e511c6c76c55ab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"families",
+								"6762d447a2e511c6c76c55ab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete family",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/families/6762d447a2e511c6c76c55ab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"families",
+								"6762d447a2e511c6c76c55ab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all families",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/families",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"families"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Members",
+			"item": [
+				{
+					"name": "Create member",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Andrey Chuchalov\",\r\n    \"phone\": \"055-770-5319\",\r\n    \"role\": \"adult\",\r\n    \"familyId\": \"675488220da03cc6a2d02786\",\r\n    \"userId\": [\"675489230da03cc6a2d02787\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get member",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/members/675497da3a8cb03e115a7286",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"members",
+								"675497da3a8cb03e115a7286"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all family members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/members/family/675488220da03cc6a2d02786",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"members",
+								"family",
+								"675488220da03cc6a2d02786"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Tasks",
 			"item": [
 				{
@@ -302,7 +420,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Theater Superwings show\",\r\n    \"description\": \"Address: Kugel 11\",\r\n    \"assignedTo\": [\"675497da3a8cb03e115a7286\",\"67549b368d7212139d24f6f5\"],\r\n    \"familyId\": \"675488220da03cc6a2d02786\",\r\n    \"date\": \"2024-12-28T12:00:00.000Z\",\r\n    \"priority\": \"high\",\r\n    \"status\": \"pending\",\r\n    \"notes\": \"tickets in Andrey`s gmail\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Theater Superwings show\",\r\n    \"description\": \"Address: Kugel 11\",\r\n    \"assignedTo\": [\"675497da3a8cb03e115a7286\",\"67549b368d7212139d24f6f5\"],\r\n    \"familyId\": \"675488220da03cc6a2d02786\",\r\n    \"dateTime\": \"2024-12-28T12:00:00.000Z\",\r\n    \"priority\": \"high\",\r\n    \"status\": \"pending\",\r\n    \"notes\": \"tickets in Andrey`s gmail\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

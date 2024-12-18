@@ -11,3 +11,10 @@ class UserSchema(Schema):
         error="Nickname should have only latin charachters and numbers")
     )
     admin = fields.Boolean()
+
+class UserUpdateSchema(Schema):
+    telegram = fields.Str(required=True, validate=validate.Regexp(
+        r'^[A-Za-z\d_]{5,32}$',
+        error="Nickname should have only latin charachters and numbers")
+    )
+    admin = fields.Boolean()

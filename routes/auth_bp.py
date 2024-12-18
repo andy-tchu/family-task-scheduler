@@ -1,8 +1,11 @@
-from flask import Blueprint, request, abort
-from controllers.user_controller import get_user, create_user, get_all_users
+from flask import Blueprint, request
 from controllers.auth_controller import login_user, signup_user, logout_user
+from models import UserSchema
+from marshmallow import ValidationError
 import logging
 
+
+user_schema = UserSchema()
 
 # Create a blueprint for authenthication
 auth_bp = Blueprint('auth', __name__, url_prefix="/")
@@ -13,13 +16,17 @@ def signup_user_bp():
         data = request.get_json()
         if not data:
             return "User data not found", 400
-        user = signup_user(data)
         
+        validated_user = user_schema.load(data)
+        user = signup_user(validated_user)
         return user
     
+    except ValidationError as ve:
+        logging.error(str(ve))
+        return "Error validating a user", 400
     except Exception as e:
         logging.error(str(e))
-        return "Signup user error", 500      
+        return "User signup error", 500      
 
 @auth_bp.route("login", methods=['POST'])
 def login_bp():   
@@ -32,7 +39,7 @@ def login_bp():
     
     except Exception as e:
         logging.error(str(e))
-        return "Login user error", 500
+        return "User login error", 500
     
 @auth_bp.route("logout", methods=['POST'])
 def logout_bp():
@@ -44,5 +51,5 @@ def logout_bp():
         return logout_user(data)
     
     except Exception as e:
-        logging.error(f"Logout error: {str(e)}", exc_info=True)
-        return "Logout user error", 500
+        logging.error(str(e))
+        return "User logout error", 500
